@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoConver</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <img src="images/logo.png" alt="..."  href="index.html" width="200px"  >
+        </div>
+    </nav>
+    <br>
+    <div>
+        <h1 class="text-center">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Conversor de Archivos</font>
+            </font>
+        </h1>
+        <br>
+        <h6 class="text-center">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Convierte tus archivos a formato Microsoft</font>
+            </font>
+        </h6>
+    </div>
+
+    <br>
+
+    <div class="d-grid gap-2" style="padding: 12%">
+        <div class="col text-center">
+            <div class="ui segment">
+                <div class="field">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+                    <label for="#elegir">Elige el archivo a subir: </label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+            <path
+              d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+            <path
+              d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+          </svg>
+                    <input type="file" id="files" name="files" />
+                    <output id="list"></output>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2" style="padding: 12%">
+            <button type="button" class="btn btn-success btn-lg" onclick="handleFileSelect()">
+        <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">Descargar </font>
+        </font>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-file-earmark-word" viewBox="0 0 16 16">
+          <path
+            d="M5.485 6.879a.5.5 0 1 0-.97.242l1.5 6a.5.5 0 0 0 .967.01L8 9.402l1.018 3.73a.5.5 0 0 0 .967-.01l1.5-6a.5.5 0 0 0-.97-.242l-1.036 4.144-.997-3.655a.5.5 0 0 0-.964 0l-.997 3.655L5.485 6.88z" />
+          <path
+            d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-ppt"
+          viewBox="0 0 16 16">
+          <path
+            d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
+          <path
+            d="M6 5a1 1 0 0 1 1-1h1.188a2.75 2.75 0 0 1 0 5.5H7v2a.5.5 0 0 1-1 0V5zm1 3.5h1.188a1.75 1.75 0 1 0 0-3.5H7v3.5z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-excel"
+          viewBox="0 0 16 16">
+          <path
+            d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z" />
+          <path
+            d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark"
+          viewBox="0 0 16 16">
+          <path
+            d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
+        </svg>
+      </button>
+
+            <button type="button" class="btn btn-danger btn-lg" onclick="handleFileSelect(true)">
+        <font style=" vertical-align: inherit; ">
+          <font style=" vertical-align: inherit; ">Convertir a </font>
+        </font>
+        <svg xmlns=" http://www.w3.org/2000/svg " width=" 16 " height=" 16 " fill=" currentColor " class=" bi bi-file-pdf "
+          viewBox=" 0 0 16 16 ">
+          <path
+            d=" M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z " />
+          <path
+            d=" M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7
+                0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856
+                0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27
+                0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307
+                0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z " />
+        </svg>
+      </button>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Ejemplo implementando el metodo POST:
+        async function postData(url = '', data = {}) {
+            // Opciones por defecto estan marcadas con un *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data) // body data type must match " Content-Type " header
+            });
+            return response.json(); // parses JSON response into native JavaScript objects
+        }
+
+        function downloadBase64File(contentBase64, fileName) {
+            const linkSource = `data:application/pdf;base64,${contentBase64}`;
+            const downloadLink = document.createElement('a');
+            document.body.appendChild(downloadLink);
+
+            downloadLink.href = linkSource;
+            downloadLink.target = '_self';
+            downloadLink.download = fileName;
+            downloadLink.click();
+        }
+
+        function getBase64(file, convertirPDF) {
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            const extensionFuente = file.name.split('.')[1].toUpperCase();
+            const extensiones = {
+                DOCX: 'ODT',
+                ODT: 'DOCX'
+            };
+            const extensionDestino = (!convertirPDF) ? extensiones[extensionFuente] : 'PDF';
+            reader.onload = function() {
+                const texto = reader.result.split(';base64,')
+                const base64 = texto[1];
+                const data = {
+                    base64,
+                    extensionFuente,
+                    extensionDestino,
+                    nombreArchivo: file.name
+                };
+                postData('http://54.163.147.33:8080/convertir', data)
+                    .then(data => {
+                        console.log(data); // JSON data parsed by `data.json()` call
+                        downloadBase64File(data.base64, data.nombreArchivo);
+                    });
+            };
+            reader.onerror = function(error) {
+                console.log('Error: ', error);
+            };
+        }
+
+        function handleFileSelect(convertirPDF = false) {
+            var files = document.getElementById('files').files; // FileList object
+            getBase64(files[0], convertirPDF);
+        }
+    </script>
+
+</body>
+
+</html>
