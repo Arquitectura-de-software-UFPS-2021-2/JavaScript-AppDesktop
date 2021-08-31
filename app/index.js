@@ -11,6 +11,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 
+
+
 let mainWindow
 let Word
 let Excel
@@ -18,7 +20,10 @@ let Powerpoint
 let PDF
 
 app.on('ready', () => {
-    mainWindow = new BrowserWindow({});
+    mainWindow = new BrowserWindow({
+        width: 700,
+        height: 750
+    });
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'views/index.html'),
         protocol: 'file',
