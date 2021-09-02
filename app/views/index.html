@@ -24,7 +24,7 @@
             <br>
             <h6 class="text-center">
                 <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Convierte tus archivos a formato Microsoft</font>
+                    <font style="vertical-align: inherit;">Convierte tus archivos a formato Favorito</font>
                 </font>
             </h6>
         </div>
@@ -43,7 +43,7 @@
             <path
               d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
           </svg>
-                        <input type="file" id="files" name="files" />
+                        <input type="file" id="files" name="files" accept=".docx,.odt,.xlsx,.ods,.pptx,.odp" required/>
                         <output id="list"></output>
                     </div>
                 </div>
@@ -158,7 +158,6 @@
                     };
                     postData('http://54.163.147.33:8080/convertir', data)
                         .then(data => {
-                            console.log(data); // JSON data parsed by `data.json()` call
                             downloadBase64File(data.base64, data.nombreArchivo);
                         });
                 };
