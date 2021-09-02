@@ -1,8 +1,6 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const url = require('url');
 const path = require('path');
-const { title } = require('process');
-const { constants } = require('crypto');
 
 if (process.env.NODE_ENV !== 'production') {
     require('electron-reload')(__dirname, {
@@ -10,14 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
     })
 }
 
-
-
-
-let mainWindow
-let Word
-let Excel
-let Powerpoint
-let PDF
+let mainWindow;
 
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
